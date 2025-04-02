@@ -60,4 +60,13 @@ public class MidiEventData {
 	{
 		this.instrument = instrument;
 	}
+	
+	public int getNoteOnOff() {
+		return noteOnOff;
+	}
+	
+	public void setNoteOnOff(int noteOnOff)
+	{
+		this.noteOnOff = noteOnOff;
+	}
 }
