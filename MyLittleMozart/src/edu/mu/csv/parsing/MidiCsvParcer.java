@@ -35,7 +35,6 @@ public class MidiCsvParcer{
 		
 		//test but get rid of after
 		System.out.println("start end trick" + objects[0] + "velocity" + objects[1] + "note" + objects[2] + "channel" + objects[3] + "instrument" + objects[4] + "note on off" + objects[5]);
-	    
 	
 	}
 	
