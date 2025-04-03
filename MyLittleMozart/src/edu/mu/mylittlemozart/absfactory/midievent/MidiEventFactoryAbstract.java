@@ -1,4 +1,4 @@
-package edu.mu.absfactory.midievent;
+package edu.mu.mylittlemozart.absfactory.midievent;
 
 public interface MidiEventFactoryAbstract {
 	
