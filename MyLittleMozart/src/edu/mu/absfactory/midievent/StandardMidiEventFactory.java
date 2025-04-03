@@ -11,15 +11,15 @@ public class StandardMidiEventFactory implements MidiEventFactory{
 		ShortMessage noteOnCreation = new ShortMessage();
 		noteOnCreation.setMessage(ShortMessage.NOTE_ON, 2, 2, 2); //dont know what to set values 
 				
-		return null;
-	}
+		return new MidiEvent(noteOnCreation, tick);
+			}
 
 	@Override
 	public MidiEvent createNoteOff(int tick, int note, int channel) throws InvalidMidiDataException {
 		ShortMessage noteOffCreation = new ShortMessage();
 		noteOffCreation.setMessage(ShortMessage.NOTE_OFF, 2, 2, 2);
 		
-		return null;
+		return new MidiEvent(noteOffCreation, tick);
 	}
 	
 	
