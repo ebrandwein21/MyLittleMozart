@@ -9,15 +9,16 @@ public class StandardMidiEventFactory implements MidiEventFactory{
 		// TODO Auto-generated method stub
 		
 		ShortMessage noteOnCreation = new ShortMessage();
-		noteOnCreation.setMessage(ShortMessage.NOTE_ON, 2, 2, 2); //dont know what to set values 
-				
+		noteOnCreation.setMessage(ShortMessage.NOTE_ON, note, velocity, channel); //dont know what to set values 
+	
+	
 		return new MidiEvent(noteOnCreation, tick);
-			}
+	}	
 
 	@Override
 	public MidiEvent createNoteOff(int tick, int note, int channel) throws InvalidMidiDataException {
 		ShortMessage noteOffCreation = new ShortMessage();
-		noteOffCreation.setMessage(ShortMessage.NOTE_OFF, 2, 2, 2);
+		noteOffCreation.setMessage(ShortMessage.NOTE_OFF, note, channel);
 		
 		return new MidiEvent(noteOffCreation, tick);
 	}

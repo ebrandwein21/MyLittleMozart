@@ -18,7 +18,8 @@ public class StaccatoMidiEventFactory implements MidiEventFactory{
 
 	
 	@Override
-	public MidiEvent createNoteOff(int tick, int note, int channel) throws InvalidMidiDataException {
+	public MidiEvent createNoteOff(int tick, int note, int channel) throws InvalidMidiDataException 
+	{
 		// TODO Auto-generated method stub
 		int duration = tick - 120;
 		ShortMessage noteOffCreation = new ShortMessage();
@@ -26,5 +27,4 @@ public class StaccatoMidiEventFactory implements MidiEventFactory{
 		return new MidiEvent(noteOffCreation, duration);
 
 	}
-
 }
