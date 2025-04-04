@@ -12,6 +12,7 @@ import javax.sound.midi.Track;
 public class AcousticGrandPianoStrategy implements InstrumentStrategy {
 	int instrument = 0;
 	
+	
 	@Override
 	public void applyInstrument(Track track, int channel) throws MidiUnavailableException, InvalidMidiDataException {
 		Synthesizer synth = MidiSystem.getSynthesizer(); 	
