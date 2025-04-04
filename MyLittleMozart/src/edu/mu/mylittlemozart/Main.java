@@ -6,8 +6,10 @@ import edu.mu.mylittlemozart.csv.parsing.*;
 import edu.mu.mylittlemozart.absfactory.midievent.*;
 //import edu.mu.mylittlemozart.instrument.*;
 import edu.mu.mylittlemozart.instrument.strategy.*;
+import edu.mu.mylittlemozart.pitch.strategy.HigherPitchStrategy;
 //import edu.mu.mylittlemozart.pitch.strategy.HigherPitchStrategy;
 //import edu.mu.mylittlemozart.pitch.strategy.PitchStrategy;
+import edu.mu.mylittlemozart.pitch.strategy.PitchStrategy;
 
 import java.io.File;
 import java.util.List;
@@ -19,7 +21,7 @@ public class Main {
 	{
 		try {
 			String directory = System.getProperty("user.dir");
-			String filePath =  directory + File.separator + "src" + File.separator + "edu"
+			String filePath =  directory  + File.separator + "src" + File.separator + "edu"
 					+ File.separator + "mu" + File.separator + "mylittlemozart" + File.separator
 					+ "mystery_song.csv";
 			List<MidiEventData> midiEvent = MidiCsvParser.midiEventListCreator(filePath);
@@ -28,8 +30,8 @@ public class Main {
 		    //System.out.println(midiEvent.get(4).getNote());
 			
 		    MidiEventFactoryAbstract factoryAbstract = new StandardMidiEventFactoryAbstract();
-		    //MidiEventFactoryAbstract factoryAbstractTwo = new StaggatoMidiEventFactory();
-		    //MidiEventFactoryAbstract factoryAbstractThree = new LegatoMidiEventFactory();
+		    MidiEventFactoryAbstract factoryAbstractTwo = new StaccatoMidiEventFactoryAbstract();
+		    MidiEventFactoryAbstract factoryAbstractThree = new LegatoMidiEventFactoryAbstract();
 		    
 		    MidiEventFactory factory = factoryAbstract.createFactory();
 		    
@@ -39,22 +41,22 @@ public class Main {
 		    instrumentStrategy = new TrumpetStrategy();
 		    instrumentStrategy.applyInstrument(track, 1);
 		    
-//		    PitchStrategy pitchStrategy = new HigherPitchStrategy();
+		    PitchStrategy pitchStrategy = new HigherPitchStrategy();
 		    
 		    for(MidiEventData event : midiEvent)
 		    {
-		    	//int modifiedNote = pitchStrategy.modifyPitch(event.getNote());
-		    	//modifiedNote = pitchStrategy.modifyPitch(modifiedNote);
+		    	int modifiedNote = pitchStrategy.modifyPitch(event.getNote());
+		    	modifiedNote = pitchStrategy.modifyPitch(modifiedNote);
 		    
 		    	if(event.getNoteOnOff() == ShortMessage.NOTE_ON)
 		    	{
 		    		track.add(factory.createNoteOn(event.getStartEndTick(), event.getNote(), event.getVelocity(), event.getChannel())); 
-		            System.out.println("added event: Note = " + event.getNote() + ", Velocity = " + event.getVelocity() + ", Tick = " + event.getStartEndTick() + event.getChannel());; //getNote not correct, needs to be modified note once strategies added
+		            System.out.println("added event: Note = " + modifiedNote + ", Velocity = " + event.getVelocity() + ", Tick = " + event.getStartEndTick() + event.getChannel());; //getNote not correct, needs to be modified note once strategies added
 		    	} //hmmm no velocity or channel 
 		    	else
 		    	{
 		    		track.add(factory.createNoteOff(event.getStartEndTick(), event.getNote(), event.getChannel())); 
-		            System.out.println("added event: Note = " + event.getNote() + ", Tick = " + event.getStartEndTick() + event.getChannel()); ////getNote not correct, needs to be modified note once strategies added
+		            System.out.println("added event: Note = " + modifiedNote + ", Tick = " + event.getStartEndTick() + event.getChannel()); ////getNote not correct, needs to be modified note once strategies added
 		          //hmmm no velocity or channel 
 		    	}
 		    }
