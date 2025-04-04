@@ -6,7 +6,11 @@ import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.ShortMessage;
 import javax.sound.midi.Track;
 
+/*
+ * This strategy allows for use of the Electric Bass Guitar Instrument
+ */
 public class ElectricBassGuitarStrategy implements InstrumentStrategy{
+	 //Electric Bass Guitar Midi instrument number
 	int instrument = 33;
 
 	@Override

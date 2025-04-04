@@ -9,7 +9,11 @@ import javax.sound.midi.ShortMessage;
 //import javax.sound.midi.Synthesizer;
 import javax.sound.midi.Track;
 
+/*
+ * This strategy allows for use of the Acoustic Grand Piano instrument
+ */
 public class AcousticGrandPianoStrategy implements InstrumentStrategy {
+	//Acoustic Grand Piano Midi instrument number
 	int instrument = 0;
 	
 	

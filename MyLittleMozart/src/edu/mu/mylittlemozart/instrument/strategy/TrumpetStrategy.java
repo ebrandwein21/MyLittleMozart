@@ -6,7 +6,11 @@ import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.ShortMessage;
 import javax.sound.midi.Track;
 
+/*
+ * This strategy allows for use of the Trumpet Midi Instrument
+ */
 public class TrumpetStrategy implements InstrumentStrategy{
+	//Trumpet Midi instrument number
 	int instrument = 56;
 
 	@Override
