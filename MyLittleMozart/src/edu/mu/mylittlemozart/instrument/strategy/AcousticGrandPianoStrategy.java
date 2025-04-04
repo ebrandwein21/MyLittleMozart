@@ -18,7 +18,7 @@ public class AcousticGrandPianoStrategy implements InstrumentStrategy {
 //		Synthesizer synth = MidiSystem.getSynthesizer(); 	
 
 		ShortMessage sm = new ShortMessage( );
-		sm.setMessage(ShortMessage.PROGRAM_CHANGE, channel, instrument, 0); //9 ==> is the channel 10.
+		sm.setMessage(ShortMessage.PROGRAM_CHANGE, channel, instrument, 0); 
 		track.add(new MidiEvent(sm, 0));
 		
 //		Instrument[] instr = synth.getDefaultSoundbank().getInstruments();
