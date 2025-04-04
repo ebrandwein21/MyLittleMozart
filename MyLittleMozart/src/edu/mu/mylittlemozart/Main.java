@@ -21,7 +21,7 @@ public class Main {
 	{
 		try {
 			String directory = System.getProperty("user.dir");
-			String filePath =  directory  + File.separator + "src" + File.separator + "edu"
+			String filePath =  directory  + File.separator + "MyLittleMozart" + File.separator + "src" + File.separator + "edu"
 					+ File.separator + "mu" + File.separator + "mylittlemozart" + File.separator
 					+ "mystery_song.csv";
 			List<MidiEventData> midiEvent = MidiCsvParser.midiEventListCreator(filePath);
@@ -29,14 +29,14 @@ public class Main {
 		    Track track = sequence.createTrack();
 		    //System.out.println(midiEvent.get(4).getNote());
 			
-		    MidiEventFactoryAbstract factoryAbstract = new StandardMidiEventFactoryAbstract();
-//		    MidiEventFactoryAbstract factoryAbstractTwo = new StaccatoMidiEventFactoryAbstract();
-//		    MidiEventFactoryAbstract factoryAbstractThree = new LegatoMidiEventFactoryAbstract();
+		    // MidiEventFactoryAbstract factoryAbstract = new StandardMidiEventFactoryAbstract();
+            MidiEventFactoryAbstract factoryAbstractTwo = new LegatoMidiEventFactoryAbstract();
+           // MidiEventFactoryAbstract factoryAbstractThree = new LegatoMidiEventFactoryAbstract();
 		    
-		    MidiEventFactory factory = factoryAbstract.createFactory();
+		    MidiEventFactory factory = factoryAbstractTwo.createFactory();
 		    
 		    
-		    InstrumentStrategy instrumentStrategy = new AcousticGrandPianoStrategy();
+		    InstrumentStrategy instrumentStrategy = new ElectricBassGuitarStrategy();
 			instrumentStrategy.applyInstrument(track, 0);
 		    instrumentStrategy = new TrumpetStrategy();
 		    instrumentStrategy.applyInstrument(track, 1);

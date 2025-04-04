@@ -35,7 +35,7 @@ public class MidiCsvParser{
 			 noteOnOff = 1;
 		}
 		
-        int velocity = Integer.parseInt(objects[2]);
+        int velocity = Integer.parseInt(objects[2]) * 10;
         int note = Integer.parseInt(objects[3]);
         int channel = Integer.parseInt(objects[4]);
         int instrument = Integer.parseInt(objects[5]);
