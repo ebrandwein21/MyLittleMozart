@@ -17,13 +17,14 @@ public class Main {
 			List<MidiEventData> midiEvent = MidiCsvParser.midiEventListCreator("/Users/ethanbrandwien/git/MyLittleMozart/MyLittleMozart/src/edu/mu/mylittlemozart/mystery_song.csv");
 		    Sequence sequence = new Sequence(Sequence.PPQ, 384);
 		    Track track = sequence.createTrack();
-		    System.out.println(midiEvent.get(4).getNote());
+		    //System.out.println(midiEvent.get(4).getNote());
 			
 		    MidiEventFactoryAbstract factoryAbstract = new StandardMidiEventFactoryAbstract();
 		    //MidiEventFactoryAbstract factoryAbstractTwo = new StaggatoMidiEventFactory();
 		    //MidiEventFactoryAbstract factoryAbstractThree = new LegatoMidiEventFactory();
 		    
 		    MidiEventFactory factory = factoryAbstract.createFactory();
+		    
 		    
 		    //InstrumentStrategy instrumentStrategy = new ElectricBassGuitarStrategy();
 			//instrumentStrategy.applyInstrument(track, 0);
@@ -39,11 +40,14 @@ public class Main {
 		    
 		    	if(event.getNoteOnOff() == ShortMessage.NOTE_ON)
 		    	{
-		    		track.add(factory.createNoteOn(event.getStartEndTick(), event.getNote(), event.getVelocity(), event.getChannel())); //getNote() could be wrong, main uses modifiedNote
-		    	}
+		    		track.add(factory.createNoteOn(event.getStartEndTick(), event.getNote(), event.getVelocity(), event.getChannel())); 
+		            System.out.println("added event: Note = " + event.getNote() + ", Velocity = " + event.getVelocity() + ", Tick = " + event.getStartEndTick() + event.getChannel());; //getNote not correct, needs to be modified note once strategies added
+		    	} //hmmm no velocity or channel 
 		    	else
 		    	{
-		    		track.add(factory.createNoteOff(event.getStartEndTick(), event.getNote(), event.getChannel())); //getNote() could be wrong, main uses modifiedNote
+		    		track.add(factory.createNoteOff(event.getStartEndTick(), event.getNote(), event.getChannel())); 
+		            System.out.println("added event: Note = " + event.getNote() + ", Tick = " + event.getStartEndTick() + event.getChannel()); ////getNote not correct, needs to be modified note once strategies added
+		          //hmmm no velocity or channel 
 		    	}
 		    }
 		    
@@ -51,6 +55,7 @@ public class Main {
 		    sequencer.open();
 		    sequencer.setSequence(sequence);
 		    sequencer.start();
+		    System.out.println("sequencer has started");
 		    
 		    while(sequencer.isRunning() | sequencer.isOpen())
 		    {
@@ -58,6 +63,8 @@ public class Main {
 		    }
 		    	Thread.sleep(500);
 		    	sequencer.close();
+			    System.out.println("sequencer has closed"); //not printing
+
 		    }catch(Exception e)
 		  {
 			 e.printStackTrace();
