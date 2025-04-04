@@ -2,9 +2,9 @@ package edu.mu.mylittlemozart;
 //import edu.mu.mylittlemozart.*;
 //import edu.mu.mylittlemozart.csv.*;
 import edu.mu.mylittlemozart.csv.parsing.*;
+//import edu.mu.mylittlemozart.instrument.strategy.AcousticGrandPianoStrategy;
 //import edu.mu.mylittlemozart.absfactory.*;
 import edu.mu.mylittlemozart.absfactory.midievent.*;
-//import edu.mu.mylittlemozart.instrument.*;
 import edu.mu.mylittlemozart.instrument.strategy.*;
 import edu.mu.mylittlemozart.pitch.strategy.HigherPitchStrategy;
 //import edu.mu.mylittlemozart.pitch.strategy.HigherPitchStrategy;
@@ -30,17 +30,17 @@ public class Main {
 		    //System.out.println(midiEvent.get(4).getNote());
 			
 		    MidiEventFactoryAbstract factoryAbstract = new StandardMidiEventFactoryAbstract();
-		    MidiEventFactoryAbstract factoryAbstractTwo = new StaccatoMidiEventFactoryAbstract();
-		    MidiEventFactoryAbstract factoryAbstractThree = new LegatoMidiEventFactoryAbstract();
+//		    MidiEventFactoryAbstract factoryAbstractTwo = new StaccatoMidiEventFactoryAbstract();
+//		    MidiEventFactoryAbstract factoryAbstractThree = new LegatoMidiEventFactoryAbstract();
 		    
 		    MidiEventFactory factory = factoryAbstract.createFactory();
 		    
 		    
-		    InstrumentStrategy instrumentStrategy = new ElectricBassGuitarStrategy();
+		    InstrumentStrategy instrumentStrategy = new AcousticGrandPianoStrategy();
 			instrumentStrategy.applyInstrument(track, 0);
 		    instrumentStrategy = new TrumpetStrategy();
 		    instrumentStrategy.applyInstrument(track, 1);
-		    
+  
 		    PitchStrategy pitchStrategy = new HigherPitchStrategy();
 		    
 		    for(MidiEventData event : midiEvent)
