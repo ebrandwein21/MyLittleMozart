@@ -51,13 +51,12 @@ public class Main {
 		    	if(event.getNoteOnOff() == ShortMessage.NOTE_ON)
 		    	{
 		    		track.add(factory.createNoteOn(event.getStartEndTick(), modifiedNote, event.getVelocity(), event.getChannel())); 
-		            System.out.println("added event: Note = " + modifiedNote + ", Velocity = " + event.getVelocity() + ", Tick = " + event.getStartEndTick() + event.getChannel());; //getNote not correct, needs to be modified note once strategies added
-		    	} //hmmm no velocity or channel 
+		            System.out.println("added event: Note = " + modifiedNote + ", Velocity = " + event.getVelocity() + ", Tick = " + event.getStartEndTick() + event.getChannel());
+		    	} 
 		    	else
 		    	{
 		    		track.add(factory.createNoteOff(event.getStartEndTick(), modifiedNote, event.getChannel())); 
-		            System.out.println("added event: Note = " + modifiedNote + ", Tick = " + event.getStartEndTick() + event.getChannel()); ////getNote not correct, needs to be modified note once strategies added
-		          //hmmm no velocity or channel 
+		            System.out.println("added event: Note = " + modifiedNote + ", Tick = " + event.getStartEndTick() + event.getChannel()); 
 		    	}
 		    }
 		    
