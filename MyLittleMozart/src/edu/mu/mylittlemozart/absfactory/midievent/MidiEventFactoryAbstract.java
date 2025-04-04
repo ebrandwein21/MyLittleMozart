@@ -4,5 +4,4 @@ public interface MidiEventFactoryAbstract {
 	
 	MidiEventFactory createFactory();
 	
-	MidiEventFactoryAbstract factoryAbstract = null;
 }
