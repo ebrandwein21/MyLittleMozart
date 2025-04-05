@@ -8,7 +8,6 @@ public class LowerPitchStrategy implements PitchStrategy{
 	@Override
 	public int modifyPitch(int note) {
 		note = note - 2;
-		System.out.println("Lowered pitch by two semitones. Note is now " + note + ".");
 		return note;
 	}
 	

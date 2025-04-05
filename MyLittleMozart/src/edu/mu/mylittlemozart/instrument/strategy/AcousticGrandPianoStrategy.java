@@ -19,8 +19,6 @@ public class AcousticGrandPianoStrategy implements InstrumentStrategy {
 		
 		ShortMessage sm = new ShortMessage( );
 		sm.setMessage(ShortMessage.PROGRAM_CHANGE, channel, instrument, 0); 
-		track.add(new MidiEvent(sm, 0));
-		
+		track.add(new MidiEvent(sm, 0));	
 	}
-
 }
