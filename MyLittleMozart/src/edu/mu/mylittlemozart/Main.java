@@ -32,15 +32,15 @@ public class Main {
 		    //System.out.println(midiEvent.get(4).getNote());
 		
 		//MidiEventFactoryAbstract factoryAbstract = new StandardMidiEventFactoryAbstract();
-       MidiEventFactoryAbstract factoryAbstractTwo = new StaccatoMidiEventFactoryAbstract();
-       //MidiEventFactoryAbstract factoryAbstractThree = new LegatoMidiEventFactoryAbstract();
+       //MidiEventFactoryAbstract factoryAbstractTwo = new StaccatoMidiEventFactoryAbstract();
+       MidiEventFactoryAbstract factoryAbstractThree = new LegatoMidiEventFactoryAbstract();
 		    
-		    MidiEventFactory factory = factoryAbstractTwo.createFactory();
+		    MidiEventFactory factory = factoryAbstractThree.createFactory();
 		    
 		    
 		    InstrumentStrategy instrumentStrategy = new ElectricBassGuitarStrategy();
 			instrumentStrategy.applyInstrument(track, 1);
-		    instrumentStrategy = new TrumpetStrategy();
+		    instrumentStrategy = new AcousticGrandPianoStrategy();
 		    instrumentStrategy.applyInstrument(track, 0);
   
 		    PitchStrategy pitchStrategy = new HigherPitchStrategy();

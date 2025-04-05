@@ -32,7 +32,7 @@ public class LegatoMidiEventFactory implements MidiEventFactory {
 	public MidiEvent createNoteOff(int tick, int note, int channel) throws InvalidMidiDataException {
 		int duration = tick + 80;
 		ShortMessage noteOffCreation = new ShortMessage();
-		noteOffCreation.setMessage(ShortMessage.NOTE_OFF, channel, note); // Using NOTE_OFF
+		noteOffCreation.setMessage(ShortMessage.NOTE_ON, channel, note); 
 		return new MidiEvent(noteOffCreation, duration);
 	}
 }
