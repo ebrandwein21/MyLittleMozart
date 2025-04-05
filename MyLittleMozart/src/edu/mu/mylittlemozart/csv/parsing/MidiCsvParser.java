@@ -36,12 +36,12 @@ public class MidiCsvParser{
 		}
 		
         int velocity = Integer.parseInt(objects[2]) * 10;
-        int note = Integer.parseInt(objects[3]);
-        int channel = Integer.parseInt(objects[4]);
+        int note = Integer.parseInt(objects[4]);
+        int channel = Integer.parseInt(objects[3]);
         int instrument = Integer.parseInt(objects[5]);
         
        
-		MidiEventData midiEventData = new MidiEventData(startEndTick, noteOnOff, velocity, note, channel, instrument);
+		MidiEventData midiEventData = new MidiEventData(startEndTick, velocity, note, channel, instrument, noteOnOff);
 		
 		//need to create instances where you would use the class and parse data from the constructor and add 
 		midiEventDataList.add(midiEventData);
