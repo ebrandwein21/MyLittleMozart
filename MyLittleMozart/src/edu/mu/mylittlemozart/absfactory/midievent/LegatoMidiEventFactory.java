@@ -14,7 +14,7 @@ public class LegatoMidiEventFactory implements MidiEventFactory {
 	 */
 	@Override
 	public MidiEvent createNoteOn(int tick, int note, int velocity, int channel) throws InvalidMidiDataException {
-		int duration = tick + 80;
+		int duration = tick;
 		ShortMessage noteOnCreation = new ShortMessage();
 		noteOnCreation.setMessage(ShortMessage.NOTE_ON, channel, note, velocity);
 		return new MidiEvent(noteOnCreation, duration);
@@ -31,8 +31,8 @@ public class LegatoMidiEventFactory implements MidiEventFactory {
 	@Override
 	public MidiEvent createNoteOff(int tick, int note, int channel) throws InvalidMidiDataException {
 		int duration = tick + 80;
-		ShortMessage noteOffreation = new ShortMessage();
-		noteOffreation.setMessage(ShortMessage.NOTE_ON, channel, note);
-		return new MidiEvent(noteOffreation, duration);
+		ShortMessage noteOffCreation = new ShortMessage();
+		noteOffCreation.setMessage(ShortMessage.NOTE_OFF, channel, note); // Using NOTE_OFF
+		return new MidiEvent(noteOffCreation, duration);
 	}
 }
