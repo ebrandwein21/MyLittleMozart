@@ -17,3 +17,11 @@ Object Oriented Concepts:
 **Strategy Pattern**: Instrument and pitch behavior are encapsulated and interchangeable
 **Encapsulation & Modularity**: Organized codebase, clean class responsibilities, package-separated
 **Abstract Factory Pattern**: Handles dynamic creation of different MIDI behaviors
+
+Running the Code: There are no dependencies needed to run the code. To run the code simply type:
+
+git clone https://github.com/ebrandwein21/MyLittleMozart.git	
+ensure that eclipse has found the src folder (which should be done by default)
+Hit the run button on eclipse. There should be output from main to demonstrate the code functions.
+
+Created by Esther Brandwein and Samantha Friedman 
